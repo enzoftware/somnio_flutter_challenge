@@ -3,6 +3,16 @@
 
 This project is a Flutter application that displays a list of blog posts fetched from the JSONPlaceholder API. The app uses Flutter's Material Design components and integrates the **Riverpod** state management library for managing application state.
 
+
+## Demo
+<img width="238" alt="image" src="https://github.com/user-attachments/assets/1b05a14a-2b80-4fc7-8ba9-973a45be45ed">
+
+<img width="238" alt="image" src="https://github.com/user-attachments/assets/b79ccb45-33fb-4d46-b426-27d6b212c9c1">
+
+<img width="238" alt="image" src="https://github.com/user-attachments/assets/6bac28b0-5e1e-468e-b9df-54a19d56ccaa">
+
+
+
 ## Prerequisites
 
 Before running the project, ensure you have the following installed:
