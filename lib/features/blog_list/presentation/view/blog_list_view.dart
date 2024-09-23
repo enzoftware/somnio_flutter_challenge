@@ -32,7 +32,7 @@ class BlogListDataView extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final scrollController = useScrollController();
+    final scrollController = PrimaryScrollController.of(context);
 
     useEffect(() {
       scrollController.addListener(() {
@@ -45,6 +45,7 @@ class BlogListDataView extends HookConsumerWidget {
     }, [scrollController]);
 
     return ListView.builder(
+      controller: scrollController,
       itemCount: blogs.length + 1,
       itemBuilder: (context, index) {
         if (index == blogs.length) {

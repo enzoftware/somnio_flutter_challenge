@@ -50,46 +50,50 @@ class BlogHomePage extends HookConsumerWidget {
     return DefaultTabController(
       length: tabs.length,
       child: Scaffold(
-        body: NestedScrollView(
+        body: PrimaryScrollController(
           controller: scrollController,
-          floatHeaderSlivers: true,
-          headerSliverBuilder: (context, innerBoxIsScrolled) {
-            return <Widget>[
-              SliverAppBar(
-                centerTitle: true,
-                title: const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8.0),
-                  child: Column(
-                    children: [
-                      Text(
-                        'Somnio Blog',
-                        style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
+          child: NestedScrollView(
+            controller: scrollController,
+            physics: const AlwaysScrollableScrollPhysics(),
+            floatHeaderSlivers: true,
+            headerSliverBuilder: (context, innerBoxIsScrolled) {
+              return <Widget>[
+                SliverAppBar(
+                  centerTitle: true,
+                  title: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8.0),
+                    child: Column(
+                      children: [
+                        Text(
+                          'Somnio Blog',
+                          style: TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      Text(
-                        'Dive into stories that stick!',
-                        style: TextStyle(fontSize: 12),
-                      ),
-                    ],
+                        Text(
+                          'Dive into stories that stick!',
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      ],
+                    ),
+                  ),
+                  floating: true,
+                  pinned: true,
+                  expandedHeight: 130.0,
+                  forceElevated: innerBoxIsScrolled,
+                  bottom: TabBar(
+                    tabs: tabs.map((String name) => Tab(text: name)).toList(),
                   ),
                 ),
-                floating: true,
-                pinned: true,
-                expandedHeight: 130.0,
-                forceElevated: innerBoxIsScrolled,
-                bottom: TabBar(
-                  tabs: tabs.map((String name) => Tab(text: name)).toList(),
-                ),
-              ),
-            ];
-          },
-          body: const TabBarView(
-            children: [
-              BlogListView(),
-              Placeholder(),
-            ],
+              ];
+            },
+            body: const TabBarView(
+              children: [
+                BlogListView(),
+                Placeholder(),
+              ],
+            ),
           ),
         ),
       ),
